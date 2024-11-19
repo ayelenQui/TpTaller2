@@ -1,0 +1,59 @@
+/* Estilo para la tarjeta principal */
+.card-action {
+  border-radius: 10px; /* Bordes redondeados para las tarjetas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave al hacer hover */
+}
+
+.card-action:hover {
+  transform: translateY(-5px); /* Elevar la tarjeta al pasar el ratón */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más fuerte en hover */
+}
+
+.card-action .card-body {
+  padding: 20px; /* Espaciado dentro de la tarjeta */
+}
+
+.card-action .card-title {
+  font-size: 1.25rem; /* Título más grande */
+  font-weight: 600; /* Negrita para el título */
+}
+
+.card-action .card-text {
+  font-size: 1rem; /* Tamaño de texto más legible */
+  color: #555; /* Color de texto gris oscuro */
+}
+
+.card-action .btn {
+  width: 100%; /* Botones ocupan todo el ancho */
+  padding: 10px; /* Espaciado adicional dentro del botón */
+  font-size: 1rem; /* Fuente de tamaño estándar */
+  transition: background-color 0.3s ease; /* Transición de color de fondo */
+}
+
+.card-action .btn-primary {
+  background-color: #007bff; /* Azul por defecto */
+  border-color: #007bff;
+}
+
+.card-action .btn-primary:hover {
+  background-color: #0056b3; /* Azul más oscuro al hacer hover */
+  border-color: #004085; /* Bordes más oscuros en hover */
+}
+
+.card-action .btn-danger {
+  background-color: #dc3545; /* Rojo para eliminar */
+  border-color: #dc3545;
+}
+
+.card-action .btn-danger:hover {
+  background-color: #c82333; /* Rojo más oscuro en hover */
+  border-color: #bd2130;
+}
+
+/* Mejorar la visibilidad del contenido en dispositivos pequeños */
+@media (max-width: 768px) {
+  .card-action {
+    margin-bottom: 20px; /* Margen inferior en dispositivos pequeños */
+  }
+}

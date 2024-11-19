@@ -1,13 +1,26 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {Router, RouterLink} from '@angular/router';
+
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+
+import {NgIf} from '@angular/common';
+import {HomeComponent} from './home/home.component';
+import {FuncionesComponent} from './funciones/funciones.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [
+HomeComponent,
+    NgIf,
+    RouterLink,
+    FuncionesComponent
+  ],
+  styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'my-app';
+
 }

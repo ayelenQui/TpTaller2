@@ -1,0 +1,80 @@
+<!-- home.component.html -->
+<div class="container mt-4">
+  <div id="taskCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Bienvenido a la Lista de Tareas</h5>
+            <p class="card-text">Usa las siguientes opciones para administrar tus tareas.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Crea una Nueva Tarea</h5>
+            <p class="card-text">Haz click en la tarjeta para crear una nueva tarea.</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Ver Tareas Pendientes</h5>
+            <p class="card-text">Accede a todas tus tareas pendientes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#taskCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#taskCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-3 mb-4">
+      <div class="card card-action">
+        <div class="card-body">
+          <h5 class="card-title">Crear Nueva Tarea</h5>
+          <p class="card-text">Haz clic para agregar una nueva tarea.</p>
+          <button class="btn btn-primary" (click)="crearNuevaTarea()">Crear Tarea</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card card-action">
+        <div class="card-body">
+          <h5 class="card-title">Ver Tareas Pendientes</h5>
+          <p class="card-text">Accede a todas tus tareas pendientes.</p>
+          <button class="btn btn-primary" (click)="verTareasPendientes()">Ver Tareas</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card card-action">
+        <div class="card-body">
+          <h5 class="card-title">Modificar Tarea</h5>
+          <p class="card-text">Haz clic para modificar una tarea existente.</p>
+          <button class="btn btn-primary" (click)="modificarTarea()">Modificar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+      <div class="card card-action">
+        <div class="card-body">
+          <h5 class="card-title">Borrar Tarea</h5>
+          <p class="card-text">Haz clic para eliminar una tarea.</p>
+          <button class="btn btn-danger" (click)="eliminarTarea()">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
