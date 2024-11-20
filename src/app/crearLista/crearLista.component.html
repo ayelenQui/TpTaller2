@@ -1,0 +1,31 @@
+<div class="row mt-2">
+<div class="col-lg-4 offset-lg-4">
+
+  <div class="card text-white bg-primary mb-3" style="max-width: 25rem;">
+    <div class="card-header text-center">Crear nueva tarea</div>
+    <div class="card-body">
+      <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+        <input formControlName="nombre" type="text" class="form-control" placeholder="Ingrese nombre de la tarea">
+        <textarea formControlName="descripcion" class="form-control mt-2" placeholder="Ingrese descripción" rows="3"></textarea>
+        <input formControlName="categoria" type="text" class="form-control mt-2" placeholder="Ingrese categoría">
+        <input formControlName="fecha" type="date" id="fecha" name="fecha" class="form-control mt-2">
+
+        <div class="row mt-2 text-center">
+          <div class="col-lg-6">
+            <button [disabled]="formulario.invalid" type="submit" class="btn btn-primary m-sm-1">Crear</button>
+          </div>
+          <div class="col-lg-6">
+            <button routerLink="/" type="button" class="btn btn-secondary m-sm-1">Volver</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+  </div>
+</div>
+</div>
+
+
+
+

@@ -1,26 +1,102 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-secondary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <h1 class="text-center">Bienvenidos</h1>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Mi Lista de Tareas</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tareas Pendientes</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Tareas Completadas</a>
-          </li>
-        </ul>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home <span class="visually-hidden">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          <div class="dropdown-menu">
+            <a [routerLink]="['/crearLista']" class="dropdown-item">Crear</a>
+          </div>
+        </li>
+      </ul>
+
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- Home Page Content -->
+<div class="container mt-2 border-0 bg-opacity-75">
+  <!-- Carousel -->
+  <div id="taskCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Bienvenido a la Lista de Tareas</h5>
+            <p class="card-text">Usa las siguientes opciones para administrar tus tareas.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
+
+  <!-- Welcome Card -->
+  <div class="card mb-3">
+    <h3 class="card-header">Bienvenido</h3>
+    <div class="card-body">
+      <h5 class="card-title">Lista de tareas</h5>
+     <p>¡Organiza tu vida de manera eficiente con nuestra plataforma de gestión de tareas! Aquí podrás crear, gestionar y realizar un seguimiento de todas tus tareas pendientes de manera fácil y rápida. Ya sea para tu día a día personal o para proyectos de trabajo, nuestra herramienta está diseñada para ayudarte a mantenerte enfocado y ser más productivo.</p>
+    </div>
+    <div class="img-fluid">
+      <img src="assets/images/home.jpg
+
+" alt="Descripción de la imagen">
+    </div>
 
 
-<app-home></app-home>
+
+    <!-- Action Cards -->
+    <div class="row justify-content-center mt-4">
+      <!-- Primera tarjeta: Crear nueva tarea -->
+      <div class="col-md-3 mb-4">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-header">¡Organízate!</div>
+          <div class="card-body">
+            <h4 class="card-title">Crear Nueva Tarea</h4>
+            <p class="card-text mt-2">Accede a crear tus tareas .</p>
+            <a [routerLink]="['/crearLista']" class="btn btn-primary">Crear Evento</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Segunda tarjeta: Ver tareas pendientes -->
+      <div class="col-md-3 mb-4">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-header">¡Ver tus pendientes!</div>
+          <div class="card-body">
+            <h5 class="card-title">Ver Tareas Pendientes</h5>
+            <p class="card-text">Accede a todas tus tareas pendientes.</p>
+            <a [routerLink]="['/listar']" class="btn btn-primary">Ver Tareas</a>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- Fin de row -->
+  </div> <!-- Fin de Welcome Card -->
+</div> <!-- Fin de container -->
+
+
+<!-- Router Outlet for dynamic content -->
+<router-outlet></router-outlet>

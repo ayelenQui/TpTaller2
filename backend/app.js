@@ -1,60 +1,75 @@
 const express = require('express');
 const cors = require('cors');
+const mysql = require('mysql2');
+const {urlencoded} = require("body-parser"); // Asegúrate de que mysql2 esté instalado
 const app = express();
 const port = 3000;
 
-// Middleware
-app.use(cors()); // Permite solicitudes desde cualquier origen
-app.use(express.json()); // Permite que el cuerpo de la solicitud sea JSON
+// Middleware para parsear el cuerpo de las solicitudes (si es necesario para POST/PUT)
+app.use(cors());
+app.use(express.json()); // Para recibir JSON
+app.use(urlencoded({ extended: true })); // Para procesar formularios si es necesario
 
-// Datos de ejemplo (en un caso real usarías una base de datos)
-let tasks = [
-  { id: 1, title: 'Estudiar Angular', completed: false },
-  { id: 2, title: 'Comprar víveres', completed: false },
-  { id: 3, title: 'Hacer ejercicio', completed: true },
-];
-
-// Endpoints
-
-// Obtener todas las tareas
-app.get('/tasks', (req, res) => {
-  res.json(tasks);
+// Crear la conexión a la base de datos
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Farma100.',
+  port: 3306,
+  database: 'tarea',
 });
 
-// Crear una nueva tarea
-app.post('/tasks', (req, res) => {
-  const { title } = req.body;
-  const newTask = {
-    id: tasks.length + 1,
-    title,
-    completed: false,
-  };
-  tasks.push(newTask);
-  res.status(201).json(newTask);
-});
-
-// Actualizar una tarea
-app.put('/tasks/:id', (req, res) => {
-  const taskId = parseInt(req.params.id);
-  const { title } = req.body;
-
-  let task = tasks.find(t => t.id === taskId);
-  if (task) {
-    task.title = title;
-    res.json(task);
+// Verificamos la conexión
+connection.connect((err) => {
+  if (err) {
+    console.error('Error de conexión a la base de datos:', err);
   } else {
-    res.status(404).json({ message: 'Tarea no encontrada' });
+    console.log('Conexión exitosa a la base de datos');
   }
 });
 
-// Eliminar una tarea
-app.delete('/tasks/:id', (req, res) => {
-  const taskId = parseInt(req.params.id);
-  tasks = tasks.filter(t => t.id !== taskId);
-  res.status(204).end(); // Devuelve un estado vacío para indicar éxito
+// Obtener todas las tareas de la base de datos
+app.get('/lista', (req, res) => {
+  connection.query('SELECT * FROM lista', function (error, results, fields) {
+    if (error) {
+      console.error('Error en la consulta:', error);
+      return res.status(500).send('Error en la consulta');
+    }
+
+    // Verifica los resultados en la consola
+    console.log('Resultados de la consulta:', results);
+
+    // Enviar respuesta en formato JSON
+    res.json(results);
+  });
 });
+
+// Obtener todas las tareas de la base de datos
+app.post('/crearLista', (req, res) => {
+  const { nombre, descripcion, categoria, fecha } = req.body;
+  // Verifica si la fecha está en el formato adecuado
+  const fechaFormateada = fecha ? fecha : new Date().toISOString().split('T')[0]; // Usa la fecha actual si no se recibe
+
+  connection.query('INSERT INTO  lista(nombre, categoria, descripcion, fecha) values (?,?,?,?) ', [nombre,descripcion,categoria,fecha], function (error, results, fields) {
+    if (error) {
+      console.error('Error en la consulta:', error);
+      return res.status(500).send('Error en la consulta');
+    }
+
+    // Verifica los resultados en la consola
+    console.log('Resultados de la consulta:', results);
+
+    // Enviar respuesta en formato JSON
+    res.json({
+      message: 'Evento creada correctamente',
+      tareaId: results.insertId
+    });
+  });
+});
+
+
 
 // Iniciar el servidor
 app.listen(port, () => {
-  console.log(`API corriendo en http://localhost:${port}`);
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });
