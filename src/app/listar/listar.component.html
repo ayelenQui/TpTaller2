@@ -27,10 +27,16 @@
         <td>
           <!-- Checkbox para marcar la tarea como completada -->
           <input type="checkbox" [(ngModel)]="tarea.completada" class="form-check-input">
+          <div class="col-lg-6">
+            <button routerLink="/" type="button" class="btn btn-danger m-sm-1">Eliminar</button>
+          </div>
         </td>
       </tr>
       </tbody>
     </table>
+    <div class="col-lg-6">
+      <button routerLink="/" type="button" class="btn btn-secondary m-sm-1">Volver</button>
+    </div>
   </div>
 </div>
 

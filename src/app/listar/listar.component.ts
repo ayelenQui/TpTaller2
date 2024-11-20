@@ -3,6 +3,7 @@ import {FuncionesService} from '../service/funciones.service';
 import {Evento} from '../modelo/evento';
 import {DatePipe, NgForOf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-listar',
@@ -10,7 +11,8 @@ import {FormsModule} from '@angular/forms';
   imports: [
     NgForOf,
     FormsModule,
-    DatePipe
+    DatePipe,
+    RouterLink
   ],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
