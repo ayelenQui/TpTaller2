@@ -36,6 +36,57 @@
       <span class="visually-hidden">Siguiente</span>
     </button>
   </div>
+
+  <!-- Acciones -->
+  <div class="row mt-4">
+    <!-- Crear Nueva Tarea -->
+    <div class="col-md-3 mb-4">
+      <div class="card card-action">
+        <div class="card-body">
+          <h5 class="card-title">Crear Nueva Tarea</h5>
+          <p class="card-text">Ingresa el título de la tarea.</p>
+          <input [(ngModel)]="newTaskTitle" placeholder="Título de la tarea" class="form-control mb-2" />
+          <button class="btn btn-primary" (click)="crearNuevaTarea()">Crear Tarea</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ver Tareas Pendientes -->
+    <div class="col-md-3 mb-4">
+      <div class="card card-action">
+        <div class="card-body">
+          <h5 class="card-title">Ver Tareas Pendientes</h5>
+          <p class="card-text">Haz clic para ver tus tareas pendientes.</p>
+          <button class="btn btn-primary" (click)="getTasks()">Ver Tareas</button>
+          <ul *ngIf="tasks.length > 0" class="mt-3">
+            <li *ngFor="let task of tasks">{{ task.title }} <button class="btn btn-sm btn-danger" (click)="eliminarTarea(task.id)">Eliminar</button></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modificar Tarea -->
+    <div class="col-md-3 mb-4">
+      <div class="card card-action">
+        <div class="card-body">
+          <h5 class="card-title">Modificar Tarea</h5>
+          <p class="card-text">Haz clic para modificar una tarea existente.</p>
+          <button class="btn btn-primary" (click)="modificarTarea()">Modificar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Borrar Tarea -->
+    <div class="col-md-3 mb-4">
+      <div class="card card-action">
+        <div class="card-body">
+          <h5 class="card-title">Borrar Tarea</h5>
+          <p class="card-text">Selecciona una tarea para eliminarla.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--
   <div class="row mt-4">
     <div class="col-md-3 mb-4">
       <div class="card card-action">
@@ -77,4 +128,5 @@
       </div>
     </div>
   </div>
+  -->
 </div>
