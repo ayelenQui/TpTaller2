@@ -17,10 +17,12 @@ import {RouterLink} from '@angular/router';
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
-export class ListarComponent implements OnInit{
- datoslistas : Array<Evento>=[];
-  constructor(private funcionesService : FuncionesService) {
+export class ListarComponent implements OnInit {
+  datoslistas: Array<Evento> = [];
+
+  constructor(private funcionesService: FuncionesService) {
   }
+
   ngOnInit(): void {
     this.funcionesService.ConsultarLista().subscribe(
       (datos) => {

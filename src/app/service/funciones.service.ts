@@ -14,7 +14,7 @@ export class FuncionesService {
 
   constructor(private http: HttpClient) {}
 
-  // Obtener todas las tareas
+  // Listar todas las tareas
   ConsultarLista(): Observable<any> {
     return this.http.get(`${this.apiUrl}/lista`);
   }
@@ -25,7 +25,7 @@ export class FuncionesService {
     return this.http.post<Evento>(`${this.apiUrl}/crearLista`, evento);
   }
 
-
-
-
+//Eliminar tarea
+  deleteTask(id: number): Observable<any>
+  {    return this.http.delete<any>(`${this.apiUrl}/${id}`);  }
 }

@@ -67,8 +67,8 @@ app.post('/crearLista', (req, res) => {
   });
 });
 
-
-
+app.put('/crearLista/:id', (req, res) => {  const taskId = parseInt(req.params.id);  const { nombre, categoria, descripcion, fecha, completada } = req.body;  const query = 'UPDATE lista SET nombre = ?, categoria = ?, descripcion = ?, fecha = ?, completada = ? WHERE id = ?';  connection.query(query, [nombre, categoria, descripcion, fecha, completada, taskId], (err, result) => {    if (err) {      console.error('Error al actualizar la tarea:', err);      res.status(500).json({message: 'Error al actualizar la tarea'});    } else if (result.affectedRows === 0) {      res.status(404).json({message: 'Tarea no encontrada'});    } else {      res.json({id: taskId, nombre, categoria, descripcion, fecha, completada});    }  });});
+app.delete('/crearLista/:id', (req, res) => {  app.delete('/tasks/:id', (req, res) => {    const taskId = parseInt(req.params.id);    connection.query('DELETE FROM lista WHERE id = ?', [taskId], (err, result) => {      if (err) {        console.error('Error al eliminar la tarea:', err);        res.status(500).json({ message: 'Error al eliminar la tarea' });      } else if (result.affectedRows === 0) {        res.status(404).json({ message: 'Tarea no encontrada' });      } else {        res.status(204).end();      }    });  });});
 // Iniciar el servidor
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
