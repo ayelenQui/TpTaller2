@@ -1,10 +1,7 @@
-
-import { Injectable } from '@angular/core'; // inyectable siempre
-import { HttpClient } from '@angular/common/http'; // peticiones
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {FormGroup} from '@angular/forms';
-import {FormBuilder} from '@angular/forms';
-import {Evento} from '../modelo/evento';
+import { Evento } from '../modelo/evento';
 
 @Injectable({
   providedIn: 'root',
@@ -21,11 +18,17 @@ export class FuncionesService {
 
   // Crear una nueva tarea
   CrearTarea(evento: Evento): Observable<Evento> {
-
     return this.http.post<Evento>(`${this.apiUrl}/crearLista`, evento);
   }
 
-//Eliminar tarea
-  deleteTask(id: number): Observable<any>
-  {    return this.http.delete<any>(`${this.apiUrl}/${id}`);  }
+  // Eliminar tarea
+  EliminarTarea(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/tareas/eliminar/${id}`);  // Ajustar la URL de eliminación
+  }
+
+  // Actualizar tarea (nuevo método)
+  ActualizarTarea(tarea: Evento): Observable<Evento> {
+    return this.http.put<Evento>(`${this.apiUrl}/tareas/actualizar/${tarea.id}`, tarea);  // Ajustar la URL de actualización
+  }
+
 }

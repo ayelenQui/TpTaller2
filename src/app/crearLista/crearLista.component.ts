@@ -14,7 +14,6 @@ import {RouterLink} from '@angular/router';
 export class CrearListaComponent implements OnInit {
   title = "Crear Nueva Tarea";
   formulario: FormGroup;
-  servicio = FuncionesService;
 
   constructor(private fb: FormBuilder, protected funcionesService: FuncionesService) {
     this.formulario = this.fb.group({ // aca le digo que ese formulario va a hacer fb de builder
@@ -37,13 +36,12 @@ export class CrearListaComponent implements OnInit {
     if (this.formulario.valid) {
       const nuevaTarea: Evento = this.formulario.value;
 
-
-
-
       this.funcionesService.CrearTarea(nuevaTarea).subscribe(
         (response) => {
           console.log('Tarea guardada correctamente:', response);
           // Redirige o muestra mensaje después de guardar
+          this.formulario.reset();
+          alert('Tarea creada correctamente');
         },
         (error) => {
           console.error('Error al guardar la tarea:', error);

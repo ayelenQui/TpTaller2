@@ -1,11 +1,11 @@
 export class Evento {
 
   constructor(
-    public id: string,
+    public id: number,
     public nombre: string,
-    public descrpcion: string,
+    public descripcion: string,
     public categoria: string,
-    public fecha: Date,
+    public fecha: string, // Cambiado a string
     public completada: boolean
   ) {
   }

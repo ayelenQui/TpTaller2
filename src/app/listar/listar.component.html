@@ -13,23 +13,30 @@
         <th scope="col">Categoría</th>
         <th scope="col">Descripción</th>
         <th scope="col">Fecha</th>
-        <th scope="col">Completada</th> <!-- Columna para marcar tareas como completadas -->
+        <th scope="col">Completada</th>
+        <th scope="col">Acciones</th>
       </tr>
       </thead>
       <tbody>
       <!-- Iterar sobre las tareas y mostrar los datos -->
       <tr *ngFor="let tarea of datoslistas">
-        <td>{{ tarea.id }}</td>
-        <td>{{ tarea.nombre }}</td>
-        <td>{{ tarea.categoria }}</td>
-        <td>{{ tarea.descrpcion }}</td>
-        <td>{{ tarea.fecha | date: 'dd-MM-yyyy' }}</td>
+        <td [ngClass]="{'completada': tarea.completada}">{{ tarea.id }}</td>
+        <td [ngClass]="{'completada': tarea.completada}">{{ tarea.nombre }}</td>
+        <td [ngClass]="{'completada': tarea.completada}">{{ tarea.categoria }}</td>
+        <td [ngClass]="{'completada': tarea.completada}">{{ tarea.descripcion }}</td>
+        <td [ngClass]="{'completada': tarea.completada}">{{ tarea.fecha | date: 'dd-MM-yyyy' }}</td>
         <td>
-          <!-- Checkbox para marcar la tarea como completada -->
-          <input type="checkbox" [(ngModel)]="tarea.completada" class="form-check-input">
-          <div class="col-lg-6">
-            <button routerLink="/" type="button" class="btn btn-danger m-sm-1">Eliminar</button>
-          </div>
+          <!-- Botón para marcar la tarea como completada o incompleta -->
+          <button
+            class="btn"
+            [ngClass]="{'btn-success': tarea.completada, 'btn-warning': !tarea.completada}"
+            (click)="actualizarTarea(tarea)">
+            {{ tarea.completada ? 'Completada' : 'Pendiente' }}
+          </button>
+        </td>
+        <td>
+          <!-- Botón para eliminar la tarea -->
+          <button class="btn btn-danger btn-sm" (click)="eliminarTarea(tarea.id)">Eliminar</button>
         </td>
       </tr>
       </tbody>
@@ -39,4 +46,3 @@
     </div>
   </div>
 </div>
-
