@@ -35,7 +35,7 @@ export class ListarComponent implements OnInit {
   }
 
   // Método para marcar tarea como completada y actualizar en el backend
-  actualizarTarea(tarea: Evento): void {
+  cambiarEstadoTarea(tarea: Evento): void {
     const fechaFormateada = new Date(tarea.fecha).toISOString().split('T')[0]; // 'YYYY-MM-DD'
 
     // Asignamos la fecha formateada al objeto tarea

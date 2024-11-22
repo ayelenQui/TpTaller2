@@ -30,13 +30,15 @@
           <button
             class="btn"
             [ngClass]="{'btn-success': tarea.completada, 'btn-warning': !tarea.completada}"
-            (click)="actualizarTarea(tarea)">
+            (click)="cambiarEstadoTarea(tarea)">
             {{ tarea.completada ? 'Completada' : 'Pendiente' }}
           </button>
         </td>
         <td>
           <!-- Botón para eliminar la tarea -->
           <button class="btn btn-danger btn-sm" (click)="eliminarTarea(tarea.id)">Eliminar</button>
+          <!-- Botón para editar la tarea -->
+          <button class="btn btn-warning btn-sm" [routerLink]="['/editar', tarea.id]">Editar</button>
         </td>
       </tr>
       </tbody>

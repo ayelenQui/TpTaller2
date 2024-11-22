@@ -31,4 +31,7 @@ export class FuncionesService {
     return this.http.put<Evento>(`${this.apiUrl}/tareas/actualizar/${tarea.id}`, tarea);  // Ajustar la URL de actualización
   }
 
+  ObtenerTareaPorId(tareaId: number): Observable<Evento> {
+    return this.http.get<Evento>(`${this.apiUrl}/tareas/obtener/${tareaId}`);
+  }
 }

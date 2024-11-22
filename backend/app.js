@@ -94,6 +94,27 @@ app.delete('/tareas/eliminar/:id', (req, res) => {
   });
 });
 
+// Obtener tarea por ID
+app.get('/tareas/obtener/:id', (req, res) => {
+  const tareaId = req.params.id;
+
+  // Buscas la tarea por ID en tu base de datos
+  const sql = 'SELECT * FROM tasks WHERE id = ?';
+  connection.query(sql, [tareaId], (err, result) => {
+    if (err) {
+      console.error('Error al obtener la tarea por ID:', err);
+      res.status(500).send('Error al obtener la tarea');
+      return;
+    }
+
+    if (result.length === 0) {
+      res.status(404).send('Tarea no encontrada');
+    } else {
+      res.json(result[0]);  // Devolvemos la tarea encontrada
+    }
+  });
+});
+
 // Iniciar el servidor
 app.listen(port, () => {
   console.log(`Servidor corriendo en http://localhost:${port}`);
