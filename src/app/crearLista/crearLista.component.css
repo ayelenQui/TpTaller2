@@ -1,0 +1,18 @@
+.contenedor-form{
+  height: 100%;
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container{
+  width: 60vh;
+  background-color: #f5ad2f;
+  margin-top: 5%;
+}
+
+.boton-volver{
+  box-shadow: none;
+}

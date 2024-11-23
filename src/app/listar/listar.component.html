@@ -1,14 +1,13 @@
 <!-- Título de la lista de tareas -->
-<h2 class="mt-4 text-center text-primary">Lista de Tareas</h2>
+<h1 class="mt-4 text-center text-dark fs-1">Lista de Tareas</h1>
 
 <!-- Tarjeta con fondo color primario para la tabla de tareas -->
-<div class="card bg-light mb-4">
-  <div class="card-body">
+<div class=" bg-transparent mb-4 contenedor-lista">
+  <div class="card-body h-auto ">
     <!-- Tabla con bordes y sombras para mejorar la visualización -->
-    <table class="table table-bordered table-hover">
+    <table class=" table table-bordered table-hover">
       <thead class="thead-light">
       <tr>
-        <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Categoría</th>
         <th scope="col">Descripción</th>
@@ -20,7 +19,6 @@
       <tbody>
       <!-- Iterar sobre las tareas y mostrar los datos -->
       <tr *ngFor="let tarea of datoslistas">
-        <td [ngClass]="{'completada': tarea.completada}">{{ tarea.id }}</td>
         <td [ngClass]="{'completada': tarea.completada}">{{ tarea.nombre }}</td>
         <td [ngClass]="{'completada': tarea.completada}">{{ tarea.categoria }}</td>
         <td [ngClass]="{'completada': tarea.completada}">{{ tarea.descripcion }}</td>

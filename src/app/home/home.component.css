@@ -57,3 +57,29 @@
     margin-bottom: 20px; /* Margen inferior en dispositivos pequeños */
   }
 }
+
+.custom-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 7vh;
+}
+
+.custom-div{
+  background-color: rgba(255, 255, 255, 0.5); /* Blanco con 80% de opacidad */
+}
+
+.cartas{
+  color: black;
+  margin-bottom: 3vh;
+  background-color: #f8f8a1;
+  width: 35vh;
+  text-align: center;
+}
+
+.contenedor-cartas{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+
+}

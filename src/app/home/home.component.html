@@ -1,15 +1,14 @@
 
 
 <!-- Home Page Content -->
-<div class="container mt-2 border-0 bg-opacity-75">
+<div class="container border-0 d-flex flex-column justify-content-center align-items-center">
   <!-- Carousel -->
   <div id="taskCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <div class="card">
+        <div class="mt-5 mb-5 border-0">
           <div class="card-body">
-            <h5 class="card-title">Bienvenido a la Lista de Tareas</h5>
-            <p class="card-text">Usa las siguientes opciones para administrar tus tareas.</p>
+            <h1 class="card-title text-uppercase text-center custom-title ">NOTAPP</h1>
           </div>
         </div>
       </div>
@@ -17,42 +16,35 @@
   </div>
 
   <!-- Welcome Card -->
-  <div class="card mb-3">
-    <h3 class="card-header">Bienvenido</h3>
+  <div class="card m-0 mb-3 custom-div w-75">
+    <h3 class="card-header text-center">Bienvenido</h3>
     <div class="card-body">
-      <h5 class="card-title">Lista de tareas</h5>
+      <h5 class="card-title text-black">Lista de tareas</h5>
       <p>¡Organiza tu vida de manera eficiente con nuestra plataforma de gestión de tareas! Aquí podrás crear, gestionar y realizar un seguimiento de todas tus tareas pendientes de manera fácil y rápida. Ya sea para tu día a día personal o para proyectos de trabajo, nuestra herramienta está diseñada para ayudarte a mantenerte enfocado y ser más productivo.</p>
     </div>
-    <div class="img-fluid">
-      <img src="assets/images/home.jpg
-
-" alt="Descripción de la imagen">
-    </div>
-
-
 
     <!-- Action Cards -->
-    <div class="row justify-content-center mt-4">
+    <div class=" contenedor-cartas">
       <!-- Primera tarjeta: Crear nueva tarea -->
-      <div class="col-md-3 mb-4">
-        <div class="card text-white bg-dark mb-3">
-          <div class="card-header">¡Organízate!</div>
+      <div class="card cartas">
+        <div class=" ">
+          <!--<div class="card-header">¡Organízate!</div>-->
           <div class="card-body">
-            <h4 class="card-title">Crear Nueva Tarea</h4>
-            <p class="card-text mt-2">Accede a crear tus tareas .</p>
-            <a [routerLink]="['/crearLista']" class="btn btn-primary">Crear Evento</a>
+            <h5 class="card-title">Crear Nueva Tarea</h5>
+            <!--<p class="card-text ">Accede a crear tus tareas.</p>-->
+            <a [routerLink]="['/crearLista']" class="btn btn-warning mt-2">Crear Evento</a>
           </div>
         </div>
       </div>
 
       <!-- Segunda tarjeta: Ver tareas pendientes -->
-      <div class="col-md-3 mb-4">
-        <div class="card text-white bg-dark mb-3">
-          <div class="card-header">¡Ver tus pendientes!</div>
+      <div class="card cartas">
+        <div class=" ">
+          <!--<div class="card-header">¡Ver tus pendientes!</div>-->
           <div class="card-body">
             <h5 class="card-title">Ver Tareas Pendientes</h5>
-            <p class="card-text">Accede a todas tus tareas pendientes.</p>
-            <a [routerLink]="['/listar']" class="btn btn-primary">Ver Tareas</a>
+            <!--<p class="card-text">Accede a todas tus tareas.</p>-->
+            <a [routerLink]="['/listar']" class="btn btn-warning mt-2">Ver Tareas</a>
           </div>
         </div>
       </div>

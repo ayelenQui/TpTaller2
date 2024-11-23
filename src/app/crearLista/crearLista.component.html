@@ -1,8 +1,8 @@
-<div class="row mt-2">
-<div class="col-lg-4 offset-lg-4">
+<div class=" ">
+<div class="contenedor-form">
 
-  <div class="card text-white bg-primary mb-3" style="max-width: 25rem;">
-    <div class="card-header text-center">Crear nueva tarea</div>
+  <div class="card text-white mb-3 form-container" >
+    <div class="card-header text-center h2">Crear nueva tarea</div>
     <div class="card-body">
       <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
         <input formControlName="nombre" type="text" class="form-control" placeholder="Ingrese nombre de la tarea">
@@ -12,10 +12,10 @@
 
         <div class="row mt-2 text-center">
           <div class="col-lg-6">
-            <button [disabled]="formulario.invalid" type="submit" class="btn btn-primary m-sm-1">Crear</button>
+            <button [disabled]="formulario.invalid" type="submit" class="btn btn-dark m-sm-1 boton-volver">Crear</button>
           </div>
           <div class="col-lg-6">
-            <button routerLink="/" type="button" class="btn btn-secondary m-sm-1">Volver</button>
+            <button routerLink="/" type="button" class="btn btn-secondary m-sm-1 boton-volver">Volver</button>
           </div>
         </div>
       </form>

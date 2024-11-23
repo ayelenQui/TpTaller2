@@ -1,8 +1,8 @@
-<div class="row mt-2">
-  <div class="col-lg-4 offset-lg-4">
+<div>
+<div class="contenedor-form">
 
-    <div class="card text-white bg-primary mb-3" style="max-width: 25rem;">
-     <h2>Editar Tarea</h2>
+    <div class="card text-white mb-3 form-container">
+     <h2 class="card-header text-center">Editar Tarea</h2>
        <div class="card-body">
         <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
           <div class="form-group">
@@ -21,7 +21,14 @@
             <label for="fecha">Fecha</label>
             <input type="date" id="fecha" formControlName="fecha" class="form-control">
           </div>
-          <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">Guardar Cambios</button>
+          <div class="d-flex flex-row fle mt-2 text-center">
+            <div class="col-lg-6">
+              <button type="submit" class="btn btn-dark m-sm-1 boton-volver" [disabled]="formulario.invalid">Guardar Cambios</button>
+            </div>
+            <div class="col-lg-6">
+              <button routerLink="/listar" type="button" class="btn btn-secondary m-sm-1 boton-volver">Volver</button>
+            </div>
+          </div>
         </form>
        </div>
     </div>

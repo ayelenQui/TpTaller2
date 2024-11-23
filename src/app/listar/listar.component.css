@@ -2,3 +2,15 @@
   text-decoration: line-through;
   color: gray; /* Opcional: para que se vea deshabilitado */
 }
+.contenedor-lista{
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.tabla{
+  background-color: #f8f8a1;
+}

@@ -1,14 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {FuncionesService} from '../service/funciones.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, RouterLink} from '@angular/router';
 import {Evento} from '../modelo/evento';
 
 @Component({
   selector: 'app-editar-tarea',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterLink
   ],
   templateUrl: './editar-tarea.component.html',
   styleUrl: './editar-tarea.component.css'
